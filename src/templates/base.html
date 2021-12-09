@@ -1,0 +1,42 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href={% static 'css/base.css' %}>
+    {% if title %}
+        <title>Educa | {{ title }}</title>
+    {% else %}
+        <title>Educa | {% block title %}{% endblock %}</title>
+    {% endif %}
+</head>
+<body>
+    <div id="header">
+        <a href="/" class="logo">Educa</a>
+        <ul class="menu">
+            {% if request.user.is_authenticated %}
+                <li>
+                    <a href="{% url 'logout' %}">Sign out</a>
+                </li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Sign in</a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            {% block domready %}
+            {% endblock %}
+        })
+    </script>
+</body>
+</html>
