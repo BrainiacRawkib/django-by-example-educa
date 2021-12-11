@@ -45,7 +45,7 @@ class Module(models.Model):
 
 
 class Content(models.Model):
-    modules = models.ForeignKey(Module, related_name='contents', on_delete=models.CASCADE,
+    module = models.ForeignKey(Module, related_name='contents', on_delete=models.CASCADE,
                                 limit_choices_to={'model__in': (
                                     'text', 'video', 'image', 'file'
                                 )})
