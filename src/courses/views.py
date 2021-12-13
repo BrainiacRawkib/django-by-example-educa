@@ -11,6 +11,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from .forms import ModuleFormSet
 from .models import Course, Module, Content, Subject
+from students.forms import CourseEnrollForm
 
 
 class OwnerMixin(object):
@@ -185,9 +186,21 @@ class CourseListView(TemplateResponseMixin, View):
         if subject:
             subject = get_object_or_404(Subject, slug=subject)
             courses = courses.filter(subject=subject)
-            context = {
-                'subjects': subjects,
-                'subject': subject,
-                'courses': courses
-            }
+        context = {
+            'subjects': subjects,
+            'subject': subject,
+            'courses': courses,
+            'title': subject.title if subject else 'All courses'
+        }
         return self.render_to_response(context)
+
+
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'courses/course/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CourseDetailView, self).get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(initial={'course': self.object})
+        context['title'] = self.get_object().title
+        return context
