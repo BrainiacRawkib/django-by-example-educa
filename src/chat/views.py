@@ -11,5 +11,8 @@ def course_chat_room(request, course_id):
     except:
         # user is not a student of the course or course does not exist
         return HttpResponseForbidden()
-    context = {'course': course}
+    context = {
+        'course': course,
+        'title': f'Chat room for {course.title}'
+    }
     return render(request, 'chat/room.html', context)
