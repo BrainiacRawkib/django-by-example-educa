@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'embed_video',
     'memcache_status',
     'rest_framework',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'educa.urls'
+ASGI_APPLICATION = 'educa.routing.application'
 
 TEMPLATES = [
     {
