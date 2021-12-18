@@ -7,7 +7,7 @@ class ChatConsumer(WebsocketConsumer):
         # accept connection
         self.accept()
 
-    def disconnect(self, code):
+    def disconnect(self, close_code):
         pass
 
     # receive message from websocket
