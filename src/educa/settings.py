@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -164,3 +165,6 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# django-heroku settings
+django_heroku.settings(locals())
