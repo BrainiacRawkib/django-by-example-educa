@@ -1,1 +1,1 @@
-web: daphne educa.asgi:application
+daphne educa.asgi:application
