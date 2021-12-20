@@ -1,1 +1,2 @@
-daphne educa.asgi:application
+web: daphne educa.asgi:application
+worker: python manage.py runworker
