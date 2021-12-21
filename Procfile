@@ -1,1 +1,1 @@
-web: gunicorn educa.wsgi
+web: daphne educa.asgi:application
