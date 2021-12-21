@@ -18,7 +18,7 @@ django-heroku = "*"
 daphne = "*"
 python-dotenv = "*"
 gunicorn = "*"
-psycopg2 = "*"
+psycopg2 = "==2.8.6"
 
 [dev-packages]
 
