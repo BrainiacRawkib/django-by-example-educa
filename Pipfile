@@ -17,6 +17,7 @@ channels-redis = "==2.4.2"
 django-heroku = "*"
 daphne = "*"
 python-dotenv = "*"
+gunicorn = "*"
 
 [dev-packages]
 
