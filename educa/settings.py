@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = [
-    'http://djangoeduca.herokuapp.com/', 'https://djangoeduca.herokuapp.com/', 'djangoeduca.herokuapp.com/'
+    'http://djangoeduca.herokuapp.com/', 'djangoeduca.herokuapp.com/'
 ]
 
 ADMINS = [
