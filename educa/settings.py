@@ -30,9 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = [
-    'http://djangoeduca.herokuapp.com', 'djangoeduca.herokuapp.com'
-]
+ALLOWED_HOSTS = []
 
 ADMINS = [
     (os.getenv('ADMIN'), os.getenv('EMAIL_HOST_USER'))
